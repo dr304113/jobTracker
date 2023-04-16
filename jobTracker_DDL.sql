@@ -1,0 +1,24 @@
+DROP DATABASE IF EXISTS JobTracker;
+CREATE DATABASE JobTracker;
+
+USE JobTracker;
+
+CREATE TABLE Company (
+id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+name VARCHAR(100),
+jobsAvailable BOOL NOT NULL,
+isStaffingCompany BOOL NOT NULL,
+personalRating VARCHAR(20)
+);
+
+CREATE TABLE Job (
+id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+companyId INT NOT NULL,
+title VARCHAR(100) NOT NULL,
+pay VARCHAR(10),
+type VARCHAR(10) NOT NULL,
+personalRating VARCHAR(15),
+FOREIGN KEY (companyId) REFERENCES Company (id)
+);
+
+
